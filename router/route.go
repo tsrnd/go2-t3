@@ -4,16 +4,16 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/tsrnd/go2-t3/controller"
+	"github.com/tsrnd/go2-t3/handler"
 )
 
 func Route() *mux.Router {
-	var bc controller.BlogController
+	var bh handler.BlogHandler
 	r := mux.NewRouter()
 
 	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
-	r.HandleFunc("/", bc.Index).Methods("GET")
+	r.HandleFunc("/", bh.Index).Methods("GET")
 
 	return r
 }

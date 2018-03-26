@@ -1,4 +1,4 @@
-package controller
+package handler
 
 import (
 	"html/template"
@@ -6,10 +6,10 @@ import (
 )
 
 type (
-	BlogController struct{}
+	BlogHandler struct{}
 )
 
-func (bc BlogController) Index(w http.ResponseWriter, r *http.Request) {
+func (bc BlogHandler) Index(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("views/blogs/index.html"))
 	tmpl.ExecuteTemplate(w, "index", nil)
 }
