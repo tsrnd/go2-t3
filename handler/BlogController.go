@@ -10,6 +10,6 @@ type (
 )
 
 func (bc BlogHandler) Index(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("views/blogs/index.html"))
+	tmpl := template.Must(template.ParseFiles("views/layout/header.html", "views/blogs/index.html", "views/layout/footer.html"))
 	tmpl.ExecuteTemplate(w, "index", nil)
 }
