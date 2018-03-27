@@ -12,7 +12,6 @@ func ConnectDB() *gorm.DB {
 	dbUser := os.Getenv("DB_USERNAME")
 	dbPass := os.Getenv("DB_PASSWORD")
 	dbName := os.Getenv("DB_DATABASE")
-	// db, err := sql.Open(dbConnect, dbUser+":"+dbPass+"@/"+dbName)
 	db, err := gorm.Open(dbConnect, dbUser+":"+dbPass+"@/"+dbName+"?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err)
