@@ -1,0 +1,108 @@
+{{ define "index" }}
+{{ template "header" }}
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Blogs</li>
+      </ol>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <a href=""><button class="btn btn-primary">Add blogs</button></a>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Option</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tiger Nixon</td>
+                  <td>System Architect</td>
+                  <td>Edinburgh</td>
+                  <td>61</td>
+                  <td>2011/04/25</td>
+                  <td>
+                    <div class="btn-option text-center">
+                        <a href="" class="btn btn-primary btn-flat fa fa-pencil"></a>&nbsp;&nbsp;
+                        <button type="button" class="btn btn-danger btn-flat fa fa-trash-o btn-delete-item"></button>
+                      </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Garrett Winters</td>
+                  <td>Accountant</td>
+                  <td>Tokyo</td>
+                  <td>63</td>
+                  <td>2011/07/25</td>
+                  <td>$170,750</td>
+                </tr>
+                <tr>
+                  <td>Ashton Cox</td>
+                  <td>Junior Technical Author</td>
+                  <td>San Francisco</td>
+                  <td>66</td>
+                  <td>2009/01/12</td>
+                  <td>$86,000</td>
+                </tr>
+                <tr>
+                  <td>Cedric Kelly</td>
+                  <td>Senior Javascript Developer</td>
+                  <td>Edinburgh</td>
+                  <td>22</td>
+                  <td>2012/03/29</td>
+                  <td>$433,060</td>
+                </tr>
+                <tr>
+                  <td>Prescott Bartlett</td>
+                  <td>Technical Author</td>
+                  <td>London</td>
+                  <td>27</td>
+                  <td>2011/05/07</td>
+                  <td>$145,000</td>
+                </tr>
+                <tr>
+                  <td>Gavin Cortez</td>
+                  <td>Team Leader</td>
+                  <td>San Francisco</td>
+                  <td>22</td>
+                  <td>2008/10/26</td>
+                  <td>$235,500</td>
+                </tr>
+                <tr>
+                  <td>Martena Mccray</td>
+                  <td>Post-Sales support</td>
+                  <td>Edinburgh</td>
+                  <td>46</td>
+                  <td>2011/03/09</td>
+                  <td>$324,050</td>
+                </tr>
+                <tr>
+                  <td>Unity Butler</td>
+                  <td>Marketing Designer</td>
+                  <td>San Francisco</td>
+                  <td>47</td>
+                  <td>2009/12/09</td>
+                  <td>$85,675</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+{{ template "footer" }}
+{{ end }}
