@@ -14,5 +14,4 @@ func SetEnv() {
 	os.Setenv("DB_PARSETIME", "True")
 	os.Setenv("SSLMODE", "disable")
 	os.Setenv("SERVER_PORT", ":8888")
-
 }
