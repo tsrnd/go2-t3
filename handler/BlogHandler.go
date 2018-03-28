@@ -7,13 +7,21 @@ import (
 	"github.com/tsrnd/go2-t3/repository"
 )
 
-type (
-	BlogHandler struct{}
-)
+type BlogHandler struct {
+	// br BlogResponse
+}
 
 func (bh BlogHandler) Index(w http.ResponseWriter, r *http.Request) {
 	var br repository.BlogResponse
-	data := br.GetAll()
-	tmpl := template.Must(template.ParseFiles("views/blogs/index.html"))
-	tmpl.ExecuteTemplate(w, "index", data)
+	blogs := br.GetAll()
+	data := map[string]interface{}{
+		"Blogs": blogs,
+	}
+
+	tmpl, err := template.ParseFiles("views/blogs/index.html")
+	if err != nil {
+		http.Error(w, "Not Found", http.StatusNotFound)
+		return
+	}
+	tmpl.Execute(w, data)
 }

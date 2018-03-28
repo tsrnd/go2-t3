@@ -2,18 +2,16 @@ package model
 
 import (
 	"os"
-	"time"
+
+	"github.com/jinzhu/gorm"
 )
 
 // Blog model
 type Blog struct {
-	ID          uint `gorm:"primary_key"`
+	gorm.Model
 	Title       string
 	Description string
 	Detail      string
-	CreatedAt   time.Time
-	UpdatedAt   time.Time
-	DeletedAt   *time.Time
 }
 
 func (Blog) TableName() string {

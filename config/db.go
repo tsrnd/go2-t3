@@ -1,6 +1,7 @@
 package config
 
 import (
+	"log"
 	"os"
 
 	"github.com/jinzhu/gorm"
@@ -17,7 +18,8 @@ func ConnectDB() *gorm.DB {
 	dbName := os.Getenv("DB_DATABASE")
 	db, err := gorm.Open(dbConnect, "host="+dbHost+" port="+dbPort+" user="+dbUser+" dbname="+dbName+" password="+dbPass)
 	if err != nil {
-		panic(err)
+		log.Fatal(err.Error())
 	}
+	db.LogMode(true)
 	return db
 }
