@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"log"
 	"net/http"
 	"os"
@@ -14,8 +12,6 @@ import (
 )
 
 func main() {
-	fmt.Print("HELLO TEAM 3")
-
 	log.Printf("Server started on: http://localhost%s", os.Getenv("SERVER_PORT"))
 
 	r := router.Route()
