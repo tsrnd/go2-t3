@@ -1,16 +1,26 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
-	"time"
+	"os"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/tsrnd/go2-t3/config"
+	"github.com/tsrnd/go2-t3/model"
+	"github.com/tsrnd/go2-t3/router"
 )
 
-func greet(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World! %s", time.Now())
+func main() {
+	log.Printf("Server started on: http://localhost%s", os.Getenv("SERVER_PORT"))
+
+	r := router.Route()
+
+	http.ListenAndServe(os.Getenv("SERVER_PORT"), r)
 }
 
-func main() {
-	http.HandleFunc("/", greet)
-	http.ListenAndServe(":8080", nil)
+func init() {
+	config.SetEnv()
+	db := config.ConnectDB()
+	model.SetDatabase(db)
 }
