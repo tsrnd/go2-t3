@@ -1,17 +1,20 @@
 package config
 
 import (
-	"database/sql"
 	"os"
+
+	"github.com/jinzhu/gorm"
 )
 
 //ConnectDB config connect db
-func ConnectDB() *sql.DB {
+func ConnectDB() *gorm.DB {
 	dbConnect := os.Getenv("DB_CONNECTION")
 	dbUser := os.Getenv("DB_USERNAME")
 	dbPass := os.Getenv("DB_PASSWORD")
 	dbName := os.Getenv("DB_DATABASE")
-	db, err := sql.Open(dbConnect, dbUser+":"+dbPass+"@/"+dbName)
+	dbCharset := os.Getenv("DB_CHARSET")
+	dbParsettime := os.Getenv("DB_PARSETIME")
+	db, err := gorm.Open(dbConnect, dbUser+":"+dbPass+"@/"+dbName+"?charset="+dbCharset+"&parseTime="+dbParsettime+"&loc=Local")
 	if err != nil {
 		panic(err)
 	}
