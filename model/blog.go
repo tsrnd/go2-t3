@@ -1,6 +1,7 @@
 package model
 
 import (
+	"os"
 	"time"
 )
 
@@ -13,4 +14,8 @@ type Blog struct {
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 	DeletedAt   *time.Time
+}
+
+func (Blog) TableName() string {
+	return os.Getenv("DB_DATABASE") + ".blogs"
 }
