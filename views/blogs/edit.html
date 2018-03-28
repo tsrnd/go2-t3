@@ -1,0 +1,19 @@
+{{ define "edit" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <form action="/{{ .Blog.ID }}/update" method="post">
+    Title <br><input type="text" id="title" name="title" value="{{ .Blog.Title }}"><br><br>
+    Description <br><input type="text" id="description" name="description" value="{{ .Blog.Description }}"><br><br>
+    Detail <br><textarea name="detail" cols="30" rows="10">{{ .Blog.Detail }}</textarea><br><br>
+    <button type="submit" id="btn-create">Edit</button>
+  </form>
+</body>
+</html>
+{{ end }}
