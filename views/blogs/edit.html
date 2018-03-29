@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-  <form action="/{{ .Blog.ID }}/update" method="post">
+  <form action="/blogs/{{ .Blog.ID }}/update" method="post">
     Title <br><input type="text" id="title" name="title" value="{{ .Blog.Title }}"><br><br>
     Description <br><input type="text" id="description" name="description" value="{{ .Blog.Description }}"><br><br>
     Detail <br><textarea name="detail" cols="30" rows="10">{{ .Blog.Detail }}</textarea><br><br>

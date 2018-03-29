@@ -7,7 +7,6 @@ import (
 
 	"github.com/tsrnd/go2-t3/model"
 	"github.com/tsrnd/go2-t3/repository"
-	"github.com/tsrnd/go2-t3/responsitory"
 
 	"github.com/gorilla/mux"
 )
@@ -17,7 +16,7 @@ type BlogHandler struct{}
 
 // Edit blog
 func (bh BlogHandler) Edit(w http.ResponseWriter, r *http.Request) {
-	var br responsitory.BlogResponse
+	var br repository.BlogResponse
 
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 	data := br.Edit(id)
@@ -27,7 +26,7 @@ func (bh BlogHandler) Edit(w http.ResponseWriter, r *http.Request) {
 
 // Update Blog
 func (bh BlogHandler) Update(w http.ResponseWriter, r *http.Request) {
-	var br responsitory.BlogResponse
+	var br repository.BlogResponse
 
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 	Title := r.FormValue("title")
