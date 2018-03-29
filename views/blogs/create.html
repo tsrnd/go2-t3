@@ -1,0 +1,33 @@
+{{ define "create" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style type="text/css">.error {color: red;}</style>
+    <title>Document</title>
+</head>
+<body>
+  <form action="/blogs/store" method="post">
+
+    {{ with .Errors.Title }}
+    <p class="error">{{ . }}</p>
+    {{ end }}
+    Title <br><input type="text" id="title" name="title" value="{{ .Title }}"><br><br>
+
+    {{ with .Errors.Description }}
+    <p class="error">{{ . }}</p>
+    {{ end }}
+    Description <br><input type="text" id="description" name="description" value="{{ .Description }}"><br><br>
+
+    {{ with .Errors.Detail }}
+    <p class="error">{{ . }}</p>
+    {{ end }}
+    Detail <br><textarea name="detail" id="detail" cols="30" rows="10" value="{{ .Detail }}"></textarea><br><br>
+
+    <button type="submit" id="btn-create">Add</button>
+  </form>
+</body>
+</html>
+{{ end }}
