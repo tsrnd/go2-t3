@@ -1,4 +1,3 @@
-{{ define "index" }}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello</h1>
+    <h1>List Blog</h1>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Detail</th>
+                <th colspan="2">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .Blogs}}
+                <tr>
+                    <td>{{.ID}}</td>
+                    <td>{{.Title}}</td>
+                    <td>{{.Description}}</td>
+                    <td>{{.Detail}}</td>
+                    <td><a href="#">Edit</a></td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+            {{end}}
+        </tbody>
+    </table>
 </body>
 </html>
-{{ end }}
