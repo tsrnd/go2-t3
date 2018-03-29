@@ -25,6 +25,16 @@ func (bh BlogHandler) Store(w http.ResponseWriter, r *http.Request) {
 	title := r.FormValue("title")
 	description := r.FormValue("description")
 	detail := r.FormValue("detail")
+	msg := &reponsitory.Message{
+		Title:       title,
+		Description: description,
+		Detail:      detail,
+	}
+	if msg.Validate() == false {
+		tmpl := template.Must(template.ParseFiles("views/blogs/create.html"))
+		tmpl.ExecuteTemplate(w, "create", msg)
+		return
+	}
 	reponsitory.CreateBlog(title, description, detail)
 	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }
