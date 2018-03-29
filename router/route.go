@@ -16,6 +16,8 @@ func Route() *mux.Router {
 	r.HandleFunc("/blogs", bh.Index).Methods("GET")
 	r.HandleFunc("/blogs/create", bh.Create).Methods("GET")
 	r.HandleFunc("/blogs/store", bh.Store).Methods("POST")
+	r.HandleFunc("/blogs/{id}/edit", bh.Edit).Methods("GET")
+	r.HandleFunc("/blogs/{id}/update", bh.Update).Methods("POST")
 
 	return r
 }
