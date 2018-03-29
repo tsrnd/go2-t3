@@ -2,8 +2,7 @@ package model
 
 import (
 	"os"
-	"time"
-  
+
 	"github.com/jinzhu/gorm"
 )
 
