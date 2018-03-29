@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/tsrnd/go2-t3/reponsitory"
+	"github.com/tsrnd/go2-t3/repository"
 )
 
 type (
@@ -25,7 +25,7 @@ func (bh BlogHandler) Store(w http.ResponseWriter, r *http.Request) {
 	title := r.FormValue("title")
 	description := r.FormValue("description")
 	detail := r.FormValue("detail")
-	msg := &reponsitory.Message{
+	msg := &repository.Message{
 		Title:       title,
 		Description: description,
 		Detail:      detail,
@@ -35,6 +35,6 @@ func (bh BlogHandler) Store(w http.ResponseWriter, r *http.Request) {
 		tmpl.ExecuteTemplate(w, "create", msg)
 		return
 	}
-	reponsitory.CreateBlog(title, description, detail)
-	http.Redirect(w, r, "/", http.StatusMovedPermanently)
+	repository.CreateBlog(title, description, detail)
+	http.Redirect(w, r, "/blogs", http.StatusMovedPermanently)
 }

@@ -1,4 +1,4 @@
-package reponsitory
+package repository
 
 import (
 	"strings"
