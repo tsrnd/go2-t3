@@ -13,6 +13,8 @@ func Route() *mux.Router {
 
 	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
+	r.HandleFunc("/{id}/edit", bh.Edit).Methods("GET")
+	r.HandleFunc("/{id}/update", bh.Update).Methods("POST")
 	r.HandleFunc("/blogs", bh.Index).Methods("GET")
 
 	return r
